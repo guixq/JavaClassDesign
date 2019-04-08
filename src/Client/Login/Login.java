@@ -1,7 +1,5 @@
 package Client.Login;
 
-import Client.UserUI.UI;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,7 +7,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.*;
-
 
 public class Login extends JFrame implements MouseListener{
 
@@ -23,9 +20,9 @@ public class Login extends JFrame implements MouseListener{
 
 
     Icon icon01,icon02,icon03,CIcon01,CIcon02,CIcon03;
-//    LoginListener Ll=null;
     JLabel min=null;
     JLabel close=null;
+    JLabel Front=null;
     public Login(){
         this.setTitle(LOG_TITLE);
         this.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
@@ -34,7 +31,7 @@ public class Login extends JFrame implements MouseListener{
         this.setResizable(false);    //禁止改变窗口大小
         BorderLayout border_layout=new BorderLayout();
         this.setLayout(border_layout);
-        ImageIcon im=new ImageIcon("./images/Background.png");
+        ImageIcon im=new ImageIcon("./images/sao.png");
         JLabel jb=new JLabel(im);
         this.getLayeredPane().add(jb,new Integer(Integer.MIN_VALUE));
         jb.setBounds(0,0,im.getIconWidth(),im.getIconHeight());
@@ -47,11 +44,11 @@ public class Login extends JFrame implements MouseListener{
         CIcon01=new ImageIcon("images/close01.gif");
         CIcon02=new ImageIcon("images/close02.png");
         CIcon03=new ImageIcon("images/close03.png");
-//        Ll=new LoginListener();
         JPanel panelNorth=new JPanel();
         panelNorth.setOpaque(false);
         panelNorth.setLayout(null);
         panelNorth.setPreferredSize(new Dimension(430, 180));
+        Front=new JLabel();
         min=new JLabel(icon01);
         min.setBounds(380,0,25,14);
         min.addMouseListener(this);
@@ -76,8 +73,6 @@ public class Login extends JFrame implements MouseListener{
         JButton btn=new JButton(image);
         btn.setBounds(128,0,image.getIconWidth()-10,image.getIconHeight()-10);
         btn.setBorder(myLineBorder);
-//        LoginListener ll=new LoginListener();
-//        btn.addActionListener(ll);
         panelSouth.add(btn);
         this.add(panelSouth,BorderLayout.SOUTH);
 
@@ -86,7 +81,6 @@ public class Login extends JFrame implements MouseListener{
         panelCenter.setOpaque(false);
         panelCenter.setLayout(null);
         panelCenter.setPreferredSize(new Dimension(420, 160));
-//        MyLineBorder myLineBorder = new MyLineBorder(new Color(192, 192, 192), 1 , true);
         JLabel JLUserName = new JLabel("用户名:");
         JLabel JLUserPaw = new JLabel("密  码:");
         JLUserName.setBounds(65, 20, 80, 20);
@@ -133,72 +127,9 @@ public class Login extends JFrame implements MouseListener{
         panelCenter.add(regeist);
         panelCenter.add(reset);
         this.add(panelCenter,BorderLayout.CENTER);
-
-//        CreatePanel cp=new CreatePanel();
-//        /**
-//         * 北部面板
-//         */
-//        JPanel panel_north= cp.CreateNorthPanel();
-//        this.add(panel_north,BorderLayout.NORTH);
-//
-//        /**
-//         * 中部面板
-//         */
-//        JPanel panel_center= cp.CrateCenterPanel();
-//        this.add(panel_center,BorderLayout.CENTER);
-//
-//
-//        /**
-//         * 南部面板
-//         */
-//        JPanel panel_south= cp.CreateSouthPanel();
-//        this.add(panel_south,BorderLayout.SOUTH);
-
-
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
     }
-
-//    public void login(){
-//        login=new Login();
-//        login.setTitle(LOG_TITLE);
-//        login.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
-//        login.setLocationRelativeTo(null);
-//        login.setUndecorated(true);   //设置frame边框不可见
-//        login.setResizable(false);    //禁止改变窗口大小
-//        BorderLayout border_layout=new BorderLayout();
-//        login.setLayout(border_layout);
-//        ImageIcon im=new ImageIcon("./images/Background.png");
-//        JLabel jb=new JLabel(im);
-//        login.getLayeredPane().add(jb,new Integer(Integer.MIN_VALUE));
-//        jb.setBounds(0,0,im.getIconWidth(),im.getIconHeight());
-//        ((JPanel)login.getContentPane()).setOpaque(false);
-//
-//        CreatePanel cp=new CreatePanel();
-//        /**
-//         * 北部面板
-//         */
-//        JPanel panel_north= cp.CreateNorthPanel();
-//        login.add(panel_north,BorderLayout.NORTH);
-//
-//        /**
-//         * 中部面板
-//         */
-//        JPanel panel_center= cp.CrateCenterPanel();
-//        login.add(panel_center,BorderLayout.CENTER);
-//
-//
-//        /**
-//         * 南部面板
-//         */
-//        JPanel panel_south= cp.CreateSouthPanel();
-//        login.add(panel_south,BorderLayout.SOUTH);
-//
-//
-//        login.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        login.setVisible(true);
-//        System.out.println(login.getWidth()+" "+login.getHeight());
-//    }
 
     public static void main(String[] args) {
         new Login();
